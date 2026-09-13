@@ -1,0 +1,33 @@
+//Time  :O(n)
+//space :O(1)
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        
+        int aws = 0;
+        int product = INT_MAX;
+        int temp_profit = 0;
+        
+        for (auto i :prices)
+        {
+            if (i < product)
+            {
+                //change product
+                product = min(i,product);
+            }
+            else
+            {
+                temp_profit = i - product;
+                //sell product;
+                aws += temp_profit;
+                //set product to current i, to find new product
+                product = i;
+            }            
+        }
+        
+        return aws;
+
+
+    }
+};

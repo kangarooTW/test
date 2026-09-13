@@ -1,0 +1,15 @@
+class Solution {
+public:
+    void rotate(vector<int>& nums, int k) {
+        int val = 0;
+        if (k > nums.size())
+        {
+            k = k%nums.size();
+        }
+        
+        vector<int> nums_k(nums.begin() + nums.size() - k, nums.end());      
+        nums.insert(nums.begin(), nums_k.begin(), nums_k.end());
+        nums.erase(nums.begin() +  nums.size() - k, nums.begin()  + nums.size() );
+              
+    }
+};
